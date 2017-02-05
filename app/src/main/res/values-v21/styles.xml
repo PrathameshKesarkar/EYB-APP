@@ -5,6 +5,5 @@
         <item name="android:layout_width">@dimen/login_card_width</item>
         <item name="android:layout_height">@dimen/login_card_height</item>
         <item name="android:layout_gravity">center</item>
-        <item name="android:elevation">4dp</item>
     </style>
 </resources>
