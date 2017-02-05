@@ -1,5 +1,6 @@
 package in.prathameshkesarkar.eyb.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -19,9 +20,6 @@ import in.prathameshkesarkar.eyb.R;
 
 public class OnBoardingActivity extends AppIntro {
 
-    ViewPager.PageTransformer pageTransformer;
-    int[] colors = {R.color.colorStatusIndigoIntro, R.color.colorStatusRedIntro, R.color.colorStatusGreyIntro};
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,51 +33,24 @@ public class OnBoardingActivity extends AppIntro {
         addSlide(AppIntroFragment.newInstance("Use Tools"
                 , "Use Various tools from the app to learn build the perfect Resumè and various life lesson"
                 , R.drawable.tools, ContextCompat.getColor(this, R.color.colorGreyIntro)));
-        pageTransformer = new ZoomOutPageTransformer();
         setFadeAnimation();
     }
 
     @Override
-    public void onSlideChanged(@Nullable Fragment oldFragment, @Nullable Fragment newFragment) {
-        super.onSlideChanged(oldFragment, newFragment);
+    public void onDonePressed(Fragment currentFragment) {
+        super.onDonePressed(currentFragment);
+        callLoginActiviy();
     }
 
-    public class ZoomOutPageTransformer implements ViewPager.PageTransformer {
-        private static final float MIN_SCALE = 0.85f;
-        private static final float MIN_ALPHA = 0.5f;
+    @Override
+    public void onSkipPressed(Fragment currentFragment) {
+        super.onSkipPressed(currentFragment);
+        callLoginActiviy();
+    }
 
-        public void transformPage(View view, float position) {
-            int pageWidth = view.getWidth();
-            int pageHeight = view.getHeight();
-
-            if (position < -1) { // [-Infinity,-1)
-                // This page is way off-screen to the left.
-                view.setAlpha(0);
-
-            } else if (position <= 1) { // [-1,1]
-                // Modify the default slide transition to shrink the page as well
-                float scaleFactor = Math.max(MIN_SCALE, 1 - Math.abs(position));
-                float vertMargin = pageHeight * (1 - scaleFactor) / 2;
-                float horzMargin = pageWidth * (1 - scaleFactor) / 2;
-                if (position < 0) {
-                    view.setTranslationX(horzMargin - vertMargin / 2);
-                } else {
-                    view.setTranslationX(-horzMargin + vertMargin / 2);
-                }
-
-                // Scale the page down (between MIN_SCALE and 1)
-                view.setScaleX(scaleFactor);
-                view.setScaleY(scaleFactor);
-
-                // Fade the page relative to its size.
-                view.setAlpha(MIN_ALPHA +
-                        (scaleFactor - MIN_SCALE) /
-                                (1 - MIN_SCALE) * (1 - MIN_ALPHA));
-
-            } else { // (1,+Infinity]
-                // This page is way off-screen to the right.
-                view.setAlpha(0);
-            }
-        }
+    public void callLoginActiviy(){
+        Intent loginIntent = new Intent(this, LoginActivity.class);
+        startActivity(loginIntent);
+        finish();
     }
 }

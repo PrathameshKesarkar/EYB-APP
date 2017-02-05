@@ -7,6 +7,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
     <style name="AppIntroTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
@@ -14,4 +15,50 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="LoginSignUpTheme" parent="AppIntroTheme">
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    </style>
+
+    <style name="LoginHeaderTextView">
+        <item name="android:textSize">36sp</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_marginTop">56dp</item>
+        <item name="android:text">@string/login_text</item>
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:typeface">sans</item>
+    </style>
+
+    <style name="LoginTextLayout" parent="Widget.Design.TextInputLayout">
+        <item name="android:layout_marginTop">16dp</item>
+    </style>
+
+    <style name="LoginEditText" parent="Widget.AppCompat.EditText">
+        <item name="android:layout_marginLeft">16dp</item>
+        <item name="android:layout_marginRight">16dp</item>
+    </style>
+
+    <style name="LoginEditText.Email">
+        <item name="android:inputType">textEmailAddress</item>
+    </style>
+
+    <style name="LoginEditText.Password">
+        <item name="android:inputType">textPassword</item>
+    </style>
+
+    <style name="LoginButton" parent="Base.Widget.AppCompat.Button">
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="backgroundTint">@color/colorAccent</item>
+        <item name="textAllCaps">false</item>
+    </style>
+
+    <style name="LoginButton.Login">
+        <item name="android:layout_marginLeft">48dp</item>
+
+    </style>
+
+    <style name="LoginButton.SignUp">
+        <item name="android:layout_marginRight">48dp</item>
+        <item name="android:layout_alignParentRight">true</item>
+    </style>
 </resources>

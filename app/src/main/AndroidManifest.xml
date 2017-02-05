@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-
     package="in.prathameshkesarkar.eyb">
+
 
     <application
         android:allowBackup="true"
@@ -12,14 +12,23 @@
         <activity
             android:name=".activities.LoginActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme">
+            android:theme="@style/LoginSignUpTheme">
 
         </activity>
-        <activity android:name=".activities.OnBoardingActivity"
+        <activity
+            android:name=".activities.OnBoardingActivity"
             android:label="@string/app_intro"
             android:theme="@style/AppIntroTheme">
+
+        </activity>
+        <activity
+            android:name=".activities.CheckActivity"
+            android:label="@string/app_name"
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

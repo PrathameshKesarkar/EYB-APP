@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">EYB</string>
     <string name="app_intro">App Intro</string>
+    <string name="login_text">Login</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
 </resources>
