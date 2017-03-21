@@ -27,7 +27,7 @@
     </style>
 
     <style name="LoginScreenTextView.Login">
-        <item name="android:layout_marginTop">56dp</item>
+        <item name="android:layout_marginTop">76dp</item>
     </style>
 
     <style name="LoginScreenTextView.SignUp">
@@ -36,7 +36,7 @@
 
 
     <style name="LoginTextLayout" parent="Widget.Design.TextInputLayout">
-        <item name="android:layout_marginTop">24dp</item>
+        <item name="android:layout_marginTop">32dp</item>
     </style>
 
     <style name="SignUpTextLayout" parent="Widget.Design.TextInputLayout">
@@ -66,7 +66,8 @@
     </style>
 
     <style name="LoginButton.Login">
-        <item name="android:layout_marginLeft">48dp</item>
+        <item name="android:layout_marginTop">24dp</item>
+        <item name="android:layout_centerHorizontal">true</item>
         <item name="android:text">@string/login_text</item>
     </style>
 
@@ -79,7 +80,7 @@
     <style name="LoginScreenCard">
         <item name="android:layout_width">@dimen/login_card_width</item>
         <item name="android:layout_height">@dimen/login_card_height</item>
-        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_centerInParent">true</item>
     </style>
 
     <style name="SignUpButton" parent="Base.Widget.AppCompat.Button">
@@ -90,8 +91,7 @@
     </style>
 
     <style name="SignUpButton.Register">
-        <item name="android:layout_marginLeft">48dp</item>
-        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_centerHorizontal">true</item>
         <item name="android:text">@string/register</item>
     </style>
 
