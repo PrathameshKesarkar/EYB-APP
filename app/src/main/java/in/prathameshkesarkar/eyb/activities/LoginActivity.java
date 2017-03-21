@@ -12,6 +12,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.graphics.drawable.AnimatedVectorDrawableCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.animation.AccelerateDecelerateInterpolator;
 
 import in.prathameshkesarkar.eyb.R;
 
@@ -46,7 +47,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 AnimatedVectorDrawableCompat avd;
-
+                animatorSet.setInterpolator(new AccelerateDecelerateInterpolator());
                 //Animation for the Registration Screen
                 Animatable animatable;
                 if (!toggleFlag) {

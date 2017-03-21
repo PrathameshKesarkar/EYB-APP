@@ -29,7 +29,7 @@ public class CheckActivity extends Activity {
             Intent onBoardingIntent = new Intent(CheckActivity.this, OnBoardingActivity.class);
             startActivity(onBoardingIntent);
         } else {
-            Intent loginIntent = new Intent(CheckActivity.this, LoginActivity.class);
+            Intent loginIntent = new Intent(CheckActivity.this, MainActivity.class);
             startActivity(loginIntent);
         }
     }

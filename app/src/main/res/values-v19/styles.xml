@@ -9,6 +9,8 @@
         <item name="android:windowTranslucentStatus">true</item>
     </style>
 
+
+
     <style name="LoginSignUpTheme" parent="AppIntroTheme">
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="android:windowTranslucentStatus">false</item>
