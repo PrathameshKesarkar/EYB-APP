@@ -12,4 +12,29 @@
     <color name="colorStatusRedIntro">#D32F2F</color>
     <color name="colorStatusIndigoIntro">#283593</color>
     <color name="colorStatusGreyIntro">#37474F</color>
+
+
+    <color name="bio_color_primary">#E91E63</color>
+    <color name="bio_color_dark">#D81B60</color>
+
+    <color name="work_color_primary">#2196F3</color>
+    <color name="work_color_dark">#1E88E5</color>
+
+    <color name="education_color_primary">#4CAF50</color>
+    <color name="education_color_dark">#43A047</color>
+
+    <color name="resume_color_primary">#B388FF</color>
+    <color name="resume_color_dark">#7C4DFF</color>
+
+    <color name="mobile_color_primark">#039BE5</color>
+    <color name="mobile_color_dark">#0288D1</color>
+
+    <color name="email_color_primary">#00796B</color>
+    <color name="email_color_dark">#00695C</color>
+
+    <color name="github_color_primary">#212121</color>
+    <color name="github_color_dark">#181616</color>
+
+    <color name="linked_color_primary">#039BE5</color>
+    <color name="linked_color_dark">#0288D1</color>
 </resources>

@@ -69,6 +69,7 @@
             android:layout_marginTop="20dp">
 
             <FrameLayout
+                android:id="@+id/bio_button"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginEnd="4dp"
@@ -96,6 +97,7 @@
             </FrameLayout>
 
             <FrameLayout
+                android:id="@+id/work_button"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginEnd="8dp"
@@ -129,6 +131,7 @@
             android:layout_marginTop="8dp">
 
             <FrameLayout
+                android:id="@+id/education_button"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginEnd="4dp"
@@ -156,6 +159,7 @@
             </FrameLayout>
 
             <FrameLayout
+                android:id="@+id/resume_button"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginEnd="8dp"
@@ -190,6 +194,7 @@
             android:layout_marginTop="8dp">
 
             <FrameLayout
+                android:id="@+id/phone_button"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginEnd="4dp"
@@ -217,6 +222,7 @@
             </FrameLayout>
 
             <FrameLayout
+                android:id="@+id/email_button"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginEnd="8dp"
@@ -250,6 +256,7 @@
             android:layout_marginTop="8dp">
 
             <FrameLayout
+                android:id="@+id/github_button"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginEnd="4dp"
@@ -277,6 +284,7 @@
             </FrameLayout>
 
             <FrameLayout
+                android:id="@+id/linked_button"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginEnd="8dp"

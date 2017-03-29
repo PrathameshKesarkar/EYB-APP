@@ -9,12 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true">
 
-        <activity android:name=".activities.MainActivity"
+        <activity
+            android:name=".activities.MainActivity"
             android:label="EYB"
-            android:theme="@style/ProfileTheme"/>
+            android:theme="@style/ProfileTheme" />
 
         <activity
-            android:name=".activities.LoginActivity"
+            android:name=".activities.RegistrationActivity"
             android:label="@string/app_name"
             android:theme="@style/LoginSignUpTheme">
 
@@ -25,6 +26,16 @@
             android:theme="@style/AppIntroTheme">
 
         </activity>
+
+        <activity
+            android:name=".activities.QuestionActivity"
+            android:label="EYB"
+            android:theme="@style/ProfileTheme" />
+
+        <activity
+            android:name=".activities.ActivityPersonalInfo"
+            android:label="EYB"
+            android:theme="@style/ProfileTheme" />
         <activity
             android:name=".activities.CheckActivity"
             android:label="@string/app_name"
