@@ -78,13 +78,9 @@
             style="@style/SignUpButton.Register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/signUpReTypeLayout" />
+            android:layout_below="@+id/signUpReTypeLayout"
+            android:layout_marginTop="20dp" />
 
-        <android.support.v7.widget.AppCompatButton
-            android:id="@+id/signUpLogin"
-            style="@style/SignUpButton.Login"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/signUpReTypeLayout" />
+
     </RelativeLayout>
 </FrameLayout>

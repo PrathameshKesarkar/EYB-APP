@@ -5,11 +5,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.view.ViewPager;
-import android.view.View;
 
 import com.github.paolorotolo.appintro.AppIntro;
-import com.github.paolorotolo.appintro.AppIntro2;
 import com.github.paolorotolo.appintro.AppIntroFragment;
 
 import in.prathameshkesarkar.eyb.R;
@@ -49,7 +46,7 @@ public class OnBoardingActivity extends AppIntro {
     }
 
     public void callLoginActiviy(){
-        Intent loginIntent = new Intent(this, LoginActivity.class);
+        Intent loginIntent = new Intent(this, RegistrationActivity.class);
         startActivity(loginIntent);
         finish();
     }
