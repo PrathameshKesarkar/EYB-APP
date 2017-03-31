@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/LoginScreenCard"
+    style="@style/SignUpCard"
     android:background="@android:color/white"
     android:visibility="visible">
 
@@ -78,8 +78,7 @@
             style="@style/SignUpButton.Register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/signUpReTypeLayout"
-            android:layout_marginTop="20dp" />
+            android:layout_below="@+id/signUpReTypeLayout"/>
 
 
     </RelativeLayout>

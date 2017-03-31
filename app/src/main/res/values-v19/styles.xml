@@ -10,6 +10,11 @@
     </style>
 
 
+    <style name="LoginTextLayout" parent="Widget.Design.TextInputLayout">
+        <item name="android:layout_marginTop">24dp</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+    </style>
 
     <style name="LoginSignUpTheme" parent="AppIntroTheme">
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -17,8 +22,7 @@
     </style>
 
     <style name="LoginEditText" parent="Widget.AppCompat.EditText">
-        <item name="android:layout_marginStart">16dp</item>
-        <item name="android:layout_marginEnd">16dp</item>
+
     </style>
 
     <style name="LoginButton.Login">

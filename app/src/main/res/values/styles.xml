@@ -46,21 +46,24 @@
     </style>
 
     <style name="LoginScreenTextView.SignUp">
-        <item name="android:layout_marginTop">36dp</item>
+        <item name="android:layout_marginTop">16dp</item>
     </style>
 
 
     <style name="LoginTextLayout" parent="Widget.Design.TextInputLayout">
-        <item name="android:layout_marginTop">32dp</item>
+        <item name="android:layout_marginTop">24dp</item>
+        <item name="android:layout_marginLeft">16dp</item>
+        <item name="android:layout_marginRight">16dp</item>
     </style>
 
     <style name="SignUpTextLayout" parent="Widget.Design.TextInputLayout">
-        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:layout_marginTop">2dp</item>
+        <item name="android:layout_marginLeft">16dp</item>
+        <item name="android:layout_marginRight">16dp</item>
     </style>
 
     <style name="LoginEditText" parent="Widget.AppCompat.EditText">
-        <item name="android:layout_marginLeft">16dp</item>
-        <item name="android:layout_marginRight">16dp</item>
+
     </style>
 
     <style name="LoginEditText.Email">
@@ -98,8 +101,14 @@
         <item name="android:layout_centerInParent">true</item>
     </style>
 
+    <style name="SignUpCard">
+        <item name="android:layout_width">@dimen/login_card_width</item>
+        <item name="android:layout_height">472dp</item>
+        <item name="android:layout_centerInParent">true</item>
+    </style>
+
     <style name="SignUpButton" parent="Base.Widget.AppCompat.Button">
-        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:layout_marginTop">4dp</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="backgroundTint">@color/colorAccent</item>
         <item name="textAllCaps">false</item>

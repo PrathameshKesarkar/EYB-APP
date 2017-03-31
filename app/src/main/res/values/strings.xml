@@ -1,11 +1,22 @@
 <resources>
     <string name="app_name">EYB</string>
     <string name="app_intro">App Intro</string>
-    <string name="login_text">Login</string>
+
+
+    <!--Login Activity-->
     <string name="name">Name</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
-    <string name="sign_up">Sign up</string>
+    <string name="sign_up">Sign Up</string>
     <string name="register">Register</string>
     <string name="re_password">Re-enter Password</string>
+    <string name="login_text">Login</string>
+
+    <!-- login Error message -->
+    <string name="email_empty">Email cannot be blank</string>
+    <string name="password_empty">Password cannot be blank</string>
+    <string name="invalid_email">Invalid Email Address</string>
+    <string name="retype_empty">Please Retype your password</string>
+    <string name="name_empty">Name cannot be empty</string>
+    <string name="retype_not_match">Password doesn\'t match</string>
 </resources>
