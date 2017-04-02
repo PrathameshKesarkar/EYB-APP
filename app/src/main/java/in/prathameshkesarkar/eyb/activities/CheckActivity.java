@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 
 /**
@@ -21,16 +22,24 @@ public class CheckActivity extends Activity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setting = getSharedPreferences("prefes", 0);
+
+        SharedPreferences preferences= PreferenceManager.getDefaultSharedPreferences(this);
+        String authToken =preferences.getString("x-auth","");
+
         boolean firstRun = setting.getBoolean("firstRun", false);
         if (!firstRun) {
             SharedPreferences.Editor editor = setting.edit();
             editor.putBoolean("firstRun", true);
             editor.apply();
-            Intent onBoardingIntent = new Intent(CheckActivity.this, OnBoardingActivity.class);
+            Intent onBoardingIntent = new Intent(this, OnBoardingActivity.class);
             startActivity(onBoardingIntent);
-        } else {
-            Intent loginIntent = new Intent(CheckActivity.this,RegistrationActivity.class);
+        } else if(authToken.isEmpty()){
+            Intent loginIntent = new Intent(this,RegistrationActivity.class);
             startActivity(loginIntent);
+        }
+        else {
+            Intent mainIntent = new Intent(this,MainActivity.class);
+            startActivity(mainIntent);
         }
     }
 }

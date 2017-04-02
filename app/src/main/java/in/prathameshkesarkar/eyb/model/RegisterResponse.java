@@ -4,7 +4,7 @@ package in.prathameshkesarkar.eyb.model;
  * Created by prathameshkesarkar on 31/03/17.
  */
 
-public class LoginResponse {
+public class RegisterResponse {
 
     private String name;
     private String id;

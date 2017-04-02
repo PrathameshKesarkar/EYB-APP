@@ -1,7 +1,7 @@
 package in.prathameshkesarkar.eyb.network;
 
-import in.prathameshkesarkar.eyb.model.LoginRequest;
-import in.prathameshkesarkar.eyb.model.LoginResponse;
+import in.prathameshkesarkar.eyb.model.Login;
+import in.prathameshkesarkar.eyb.model.RegisterResponse;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.POST;
@@ -13,5 +13,5 @@ import retrofit2.http.POST;
 public interface LoginService {
 
     @POST("/users/login")
-    Call<LoginResponse> performLogin(@Body LoginRequest request);
+    Call<RegisterResponse> performLogin(@Body Login request);
 }

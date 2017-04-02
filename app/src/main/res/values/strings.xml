@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">EYB</string>
     <string name="app_intro">App Intro</string>
-
+    <string name="dismiss">Dismiss</string>
 
     <!--Login Activity-->
     <string name="name">Name</string>

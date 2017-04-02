@@ -4,11 +4,11 @@ package in.prathameshkesarkar.eyb.model;
  * Created by prathameshkesarkar on 31/03/17.
  */
 
-public class LoginRequest {
+public class Login {
     private String email;
     private String password;
 
-    public LoginRequest(String email ,String password){
+    public Login(String email , String password){
         this.email=email;
         this.password = password;
     }

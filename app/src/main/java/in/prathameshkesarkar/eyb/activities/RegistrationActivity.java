@@ -3,37 +3,43 @@ package in.prathameshkesarkar.eyb.activities;
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Animatable;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.graphics.drawable.AnimatedVectorDrawableCompat;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Layout;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
-import android.widget.Button;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import butterknife.BindString;
 import butterknife.BindView;
-import butterknife.BindViews;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 import in.prathameshkesarkar.eyb.R;
-import in.prathameshkesarkar.eyb.model.LoginRequest;
-import in.prathameshkesarkar.eyb.model.LoginResponse;
+import in.prathameshkesarkar.eyb.model.Login;
+import in.prathameshkesarkar.eyb.model.Register;
+import in.prathameshkesarkar.eyb.model.RegisterResponse;
+import in.prathameshkesarkar.eyb.model.error.RetrofitError;
+import in.prathameshkesarkar.eyb.network.ErrorUtils;
 import in.prathameshkesarkar.eyb.network.LoginService;
+import in.prathameshkesarkar.eyb.network.RegisterService;
 import in.prathameshkesarkar.eyb.service.ServiceGenerator;
 import okhttp3.Headers;
 import retrofit2.Call;
@@ -117,14 +123,15 @@ public class RegistrationActivity extends AppCompatActivity {
 
     private Animator slideOutAnimation, slideInAnimation;
     /**
-     * TODO: Then Let's move the Network Task to AndroidJob rather than Asynctask
+     * TODO: Then Let's move the Network Task to Retrofit rather than Asynctask
      */
     private Unbinder unbinder;
-
+    private Snackbar snackbar;
     private boolean toggleFlag = false;
     private AnimatorSet animatorSet = new AnimatorSet();
+    private NetworkInfo networkInfo;
 
-    AlertDialog dialog;
+    ProgressDialog dialog;
 
 
     @Override
@@ -133,6 +140,12 @@ public class RegistrationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_registration);
         unbinder = ButterKnife.bind(this);
 
+        //Requesting Service for checking connectivity
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        networkInfo = connectivityManager.getActiveNetworkInfo();
+
+        //Initialize the Instance of Snackbar
+        initializeSnackBar();
 
         actionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -178,19 +191,6 @@ public class RegistrationActivity extends AppCompatActivity {
 
     }
 
-    public void waitForLogin() {
-        final Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                //Do something after 100ms
-                dialog.dismiss();
-                Intent intent = new Intent(RegistrationActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
-        }, 2000);
-    }
-
     @OnClick(R.id.loginButton)
     public void loginUser() {
         String email = loginEmailEditText.getText().toString();
@@ -215,30 +215,42 @@ public class RegistrationActivity extends AppCompatActivity {
             clearError(loginPasswordTextLayout);
         }
 
-        dialog = new AlertDialog.Builder(RegistrationActivity.this).setMessage("Checkin the Info with Server").create();
+        dialog = new ProgressDialog(RegistrationActivity.this);
+        dialog.setMessage("Please wait while we log you in");
+        dialog.setIndeterminate(true);
+        dialog.setCancelable(false);
         dialog.show();
 
         LoginService loginService = ServiceGenerator.createService(LoginService.class);
-        LoginRequest loginRequest = new LoginRequest(email, password);
+        Login login = new Login(email, password);
 
+        Call<RegisterResponse> call = loginService.performLogin(login);
 
-        Call<LoginResponse> call = loginService.performLogin(loginRequest);
-
-        call.enqueue(new Callback<LoginResponse>() {
+        call.enqueue(new Callback<RegisterResponse>() {
             @Override
-            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+            public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
+                dialog.dismiss();
                 if (response.isSuccessful()) {
                     Headers headers = response.headers();
                     String authToken = headers.get("x-auth");
-                    Log.d("Auth Token", authToken);
-                    dialog.dismiss();
+                    saveAuthToken(authToken);
+                    startMainActivity();
+                } else {
+                    RetrofitError error = ErrorUtils.parseError(response);
+                    snackbar.setText(error.getError().getDescription());
+                    snackbar.show();
                 }
+
             }
 
             @Override
-            public void onFailure(Call<LoginResponse> call, Throwable t) {
+            public void onFailure(Call<RegisterResponse> call, Throwable t) {
                 dialog.dismiss();
-                Snackbar.make()
+                if (!(networkInfo != null && networkInfo.isConnected())) {
+                    snackbar.setText("No Internet Connectivity Available").show();
+                } else {
+                    snackbar.setText("Error Communicating with server,Please Try again later").show();
+                }
             }
         });
 
@@ -283,9 +295,56 @@ public class RegistrationActivity extends AppCompatActivity {
             clearError(signUpRetypeTextLayout);
         }
 
-        dialog = new AlertDialog.Builder(RegistrationActivity.this).setMessage("Checkin the Info with Server").create();
+        dialog = new ProgressDialog(RegistrationActivity.this);
+        dialog.setMessage("Please wait , Registering Account");
+        dialog.setIndeterminate(true);
         dialog.show();
-        waitForLogin();
+
+        RegisterService service = ServiceGenerator.createService(RegisterService.class);
+
+        Register register = new Register(name, email, password);
+        Call<RegisterResponse> call = service.performRegister(register);
+
+        call.enqueue(new Callback<RegisterResponse>() {
+            @Override
+            public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
+                dialog.dismiss();
+                if (response.isSuccessful()) {
+                    Headers headers = response.headers();
+                    String authToken = headers.get("x-auth");
+                    saveAuthToken(authToken);
+                    startMainActivity();
+
+                } else {
+                    RetrofitError error = ErrorUtils.parseError(response);
+                    snackbar.setText(error.getError().getDescription());
+                    snackbar.show();
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<RegisterResponse> call, Throwable t) {
+                dialog.dismiss();
+                if (!(networkInfo != null && networkInfo.isConnected())) {
+                    snackbar.setText("No Internet Connectivity Available").show();
+                } else {
+                    snackbar.setText("Error Communicating with server,Please Try again later").show();
+                }
+            }
+        });
+    }
+
+    private void startMainActivity() {
+        Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
+    }
+
+    private void saveAuthToken(String authToken) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("x-auth",authToken);
+        editor.apply();
     }
 
     private boolean isInvalidEmail(String email) {
@@ -310,5 +369,14 @@ public class RegistrationActivity extends AppCompatActivity {
         unbinder.unbind();
     }
 
+    public void initializeSnackBar() {
+        snackbar = Snackbar.make(registrationRootView, "", Snackbar.LENGTH_INDEFINITE);
+        snackbar.setAction(R.string.dismiss, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                snackbar.dismiss();
+            }
+        });
+    }
 
 }
