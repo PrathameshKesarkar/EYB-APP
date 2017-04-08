@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ProfileGridView">
+        <attr name="drawble" format="reference" />
+        <attr name="grid_description" format="string" />
+    </declare-styleable>
+</resources>

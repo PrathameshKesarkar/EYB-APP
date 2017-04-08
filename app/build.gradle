@@ -7,7 +7,7 @@ android {
         applicationId "in.prathameshkesarkar.eyb"
         minSdkVersion 15
         targetSdkVersion 25
-        vectorDrawables.useSupportLibrary=true
+        vectorDrawables.useSupportLibrary = true
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -39,6 +39,6 @@ dependencies {
     compile 'com.evernote:android-job:1.1.8'
     compile 'com.squareup.retrofit2:retrofit:2.2.0'
     compile 'com.squareup.retrofit2:converter-gson:2.2.0'
-
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
 
 }

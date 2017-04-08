@@ -126,4 +126,29 @@
         <item name="android:layout_alignParentRight">true</item>
         <item name="android:text">@string/login_text</item>
     </style>
+
+    <style name="GridItem">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">120dp</item>
+        <item name="android:background">@android:color/white</item>
+        <item name="android:paddingTop">20dp</item>
+        <item name="android:paddingBottom">16dp</item>
+        <item name="android:layout_marginTop">16dp</item>
+    </style>
+
+
+    <style name="GridItem.Left">
+        <item name="android:layout_marginLeft">16dp</item>
+        <item name="android:layout_marginRight">8dp</item>
+    </style>
+
+    <style name="GridItem.Right">
+        <item name="android:layout_marginLeft">8dp</item>
+        <item name="android:layout_marginRight">16dp</item>
+    </style>
+
+    <style name="GridItem.Big">
+        <item name="android:layout_marginLeft">16dp</item>
+        <item name="android:layout_marginRight">16dp</item>
+    </style>
 </resources>

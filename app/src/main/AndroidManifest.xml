@@ -1,7 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="in.prathameshkesarkar.eyb">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -9,36 +10,26 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true">
-
         <activity
             android:name=".activities.MainActivity"
             android:label="EYB"
             android:theme="@style/ProfileTheme" />
-
         <activity
             android:name=".activities.RegistrationActivity"
             android:label="@string/app_name"
-            android:theme="@style/LoginSignUpTheme"
-            android:noHistory="true">
-
-        </activity>
+            android:noHistory="true"
+            android:theme="@style/LoginSignUpTheme"></activity>
         <activity
             android:name=".activities.StudentModuleActivity"
-            android:theme="@style/AppTheme" >
-
-        </activity>
+            android:theme="@style/AppTheme"></activity>
         <activity
             android:name=".activities.OnBoardingActivity"
             android:label="@string/app_intro"
-            android:theme="@style/AppIntroTheme">
-
-        </activity>
-
+            android:theme="@style/AppIntroTheme"></activity>
         <activity
             android:name=".activities.QuestionActivity"
             android:label="EYB"
             android:theme="@style/ProfileTheme" />
-
         <activity
             android:name=".activities.ActivityPersonalInfo"
             android:label="EYB"
@@ -55,6 +46,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".PlaygroundActivity"></activity>
     </application>
 
 </manifest>
