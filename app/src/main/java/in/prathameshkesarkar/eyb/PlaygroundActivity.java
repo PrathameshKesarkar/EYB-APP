@@ -8,6 +8,6 @@ public class PlaygroundActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_playground);
+        setContentView(R.layout.fragment_profile);
     }
 }

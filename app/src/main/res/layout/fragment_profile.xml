@@ -4,12 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="in.prathameshkesarkar.eyb.PlaygroundActivity">
+    android:fillViewport="true"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:background="@color/colorPrimary"
+    tools:context="in.prathameshkesarkar.eyb.fragment.ProfileFragment">
 
     <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorPrimary">
+        android:layout_height="wrap_content"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/avatar_view"
@@ -130,7 +133,8 @@
             app:grid_description="Internship"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/linkedin_grid_item" />
+            app:layout_constraintTop_toBottomOf="@id/linkedin_grid_item"
+            />
 
     </android.support.constraint.ConstraintLayout>
 </ScrollView>

@@ -8,6 +8,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
@@ -43,7 +44,7 @@ public class ProfileGridView extends FrameLayout {
 
     public void initView(Context context, AttributeSet attrs) {
         TextView gridTextView;
-        View view = inflate(context, R.layout.square_grid, null);
+        View view = LayoutInflater.from(getContext()).inflate( R.layout.square_grid, null);
         gridTextView = (TextView) view.findViewById(R.id.grid_description);
 
         TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.ProfileGridView);

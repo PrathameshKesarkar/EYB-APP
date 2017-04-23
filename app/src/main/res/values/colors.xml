@@ -37,4 +37,6 @@
 
     <color name="linked_color_primary">#039BE5</color>
     <color name="linked_color_dark">#0288D1</color>
+
+    <color name="cyan_accent">#00E5FF</color>
 </resources>
