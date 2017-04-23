@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/avatar_view"
+            android:layout_width="116dp"
+            android:layout_height="116dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/ic_man" />
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_alignBottom="@id/avatar_view"
+            android:layout_alignEnd="@id/avatar_view"
+            android:layout_alignRight="@id/avatar_view"
+            android:background="@drawable/circular_drawable"
+            app:srcCompat="@drawable/ic_edit"
+            />
+
+        <LinearLayout
+            android:id="@+id/user_info_ll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/avatar_view"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="#616161"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Prathamesh Kesarkar"
+                android:textColor="@android:color/white"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                 />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="21 years"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bio_work_ll"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_below="@id/user_info_ll"
+            android:layout_marginTop="20dp">
+
+            <FrameLayout
+                android:id="@+id/bio_button"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="4dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="4dp"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/ic_white_rectangle">
+
+
+
+                <TextView
+                    android:drawableTop="@drawable/ic_message"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:layout_marginBottom="20dp"
+                    android:text="Short BIO"
+                    android:textSize="20sp"
+                     />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/work_button"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/ic_white_rectangle">
+
+                <android.support.v7.widget.AppCompatImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/ic_work"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:layout_marginBottom="20dp"
+                    android:text="Internship"
+                    android:textSize="20sp"
+                     />
+            </FrameLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/edu_resume_ll"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_below="@id/bio_work_ll"
+            android:layout_marginTop="8dp">
+
+            <FrameLayout
+                android:id="@+id/education_button"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="4dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="4dp"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/ic_white_rectangle">
+
+                <android.support.v7.widget.AppCompatImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@null"
+                    app:srcCompat="@drawable/ic_school" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:layout_marginBottom="20dp"
+                    android:text="Education"
+                    android:textSize="20sp"
+                     />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/resume_button"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/ic_white_rectangle">
+
+                <android.support.v7.widget.AppCompatImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/ic_description"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:layout_marginBottom="20dp"
+                    android:text="Resume"
+                    android:textSize="20sp"
+                     />
+            </FrameLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/phone_email_ll"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_below="@id/edu_resume_ll"
+            android:layout_marginTop="8dp">
+
+            <FrameLayout
+                android:id="@+id/phone_button"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="4dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="4dp"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/ic_white_rectangle">
+
+                <android.support.v7.widget.AppCompatImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@null"
+                    app:srcCompat="@drawable/ic_mobile" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:layout_marginBottom="20dp"
+                    android:text="Mobile No"
+                    android:textSize="20sp"
+                     />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/email_button"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/ic_white_rectangle">
+
+                <android.support.v7.widget.AppCompatImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/ic_email"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:layout_marginBottom="20dp"
+                    android:text="Email"
+                    android:textSize="20sp"
+                     />
+            </FrameLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/github_stackoverflow_ll"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_below="@id/phone_email_ll"
+            android:layout_marginTop="8dp">
+
+            <FrameLayout
+                android:id="@+id/github_button"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="4dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="4dp"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/ic_white_rectangle">
+
+                <android.support.v7.widget.AppCompatImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@null"
+                    app:srcCompat="@drawable/ic_github" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:layout_marginBottom="20dp"
+                    android:text="Github"
+                    android:textSize="20sp"
+                     />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/linked_button"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/ic_white_rectangle">
+
+                <android.support.v7.widget.AppCompatImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/ic_linkedin"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:layout_marginBottom="20dp"
+                    android:text="LinkedIn"
+                    android:textSize="20sp"
+                    />
+            </FrameLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</ScrollView>
