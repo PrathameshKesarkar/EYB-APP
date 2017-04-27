@@ -10,10 +10,10 @@
     </style>
 
     <style name="MainActivityTheme" parent="Theme.AppCompat.NoActionBar">
-        <item name="android:windowTranslucentStatus">true</item>
         <item name="colorPrimary">@color/resume_color_primary</item>
         <item name="colorPrimaryDark">@color/resume_color_dark</item>
         <item name="colorAccent">@color/cyan_accent</item>
+        <item name="android:windowContentOverlay">@null</item>
     </style>
 
     <style name="LoginTextLayout" parent="Widget.Design.TextInputLayout">

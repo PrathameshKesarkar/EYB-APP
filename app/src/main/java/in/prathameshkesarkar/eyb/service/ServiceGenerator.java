@@ -11,7 +11,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ServiceGenerator {
 
-    private static final String BASE_URL = "http://192.168.0.101:3000/";
+    private static final String BASE_URL = "http://192.168.0.103:3000/";
 
     private static OkHttpClient.Builder httpclient = new OkHttpClient.Builder();
 

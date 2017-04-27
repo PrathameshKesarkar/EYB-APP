@@ -2,6 +2,9 @@ package in.prathameshkesarkar.eyb.activities;
 
 import android.animation.ArgbEvaluator;
 import android.content.Intent;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -39,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     FloatingActionButton actionButton;
 
     @BindView(R.id.tabs)
-    TabLayout tableLayout;
+    TabLayout tabLayout;
 
     private ArgbEvaluator evaluator;
     private float fabX;
@@ -51,13 +54,20 @@ public class MainActivity extends AppCompatActivity {
         unbinder = ButterKnife.bind(this);
         MainPagerAdapter pagerAdapter = new MainPagerAdapter(getSupportFragmentManager());
 
-        tableLayout.setupWithViewPager(viewPager);
+        tabLayout.setupWithViewPager(viewPager);
+
 
         viewPager.setAdapter(pagerAdapter);
         evaluator = new ArgbEvaluator();
 
+        actionButton.hide();
+
         final int purple = ContextCompat.getColor(this, R.color.resume_color_primary);
         final int yellow = ContextCompat.getColor(this, R.color.colorPrimary);
+
+        final int darkPurple = ContextCompat.getColor(this, R.color.resume_color_dark);
+        final int darkYellow = ContextCompat.getColor(this, R.color.colorPrimaryDark);
+
 
         fabX = actionButton.getX();
         Log.d("FabPosition", String.valueOf(fabX));
@@ -66,17 +76,59 @@ public class MainActivity extends AppCompatActivity {
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                int backgroundColor, darkBackgroundColor = 0;
                 if (position == 0) {
-                    backgroundView.setBackgroundColor((Integer) evaluator.evaluate(positionOffset, yellow, purple));
+                    backgroundColor = (Integer) evaluator.evaluate(positionOffset, yellow, purple);
+                    backgroundView.setBackgroundColor(backgroundColor);
+
                     actionButton.setTranslationX(fabX * positionOffset);
+
+
+                    darkBackgroundColor = (int) evaluator.evaluate(positionOffset, darkYellow, darkPurple);
+
+
                 } else if (position == 1) {
-                    backgroundView.setBackgroundColor(purple);
-                    backgroundView.setBackgroundColor((Integer) evaluator.evaluate(positionOffset, purple, yellow));
+                    backgroundColor = (Integer) evaluator.evaluate(positionOffset, purple, yellow);
+                    backgroundView.setBackgroundColor(backgroundColor);
+
+                    darkBackgroundColor = (int) evaluator.evaluate(positionOffset, darkPurple, darkYellow);
+
                 }
+                tabLayout.setBackgroundColor(darkBackgroundColor);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+                    getWindow().setStatusBarColor(darkBackgroundColor);
             }
 
             @Override
             public void onPageSelected(int position) {
+                Drawable drawable;
+                switch (position) {
+
+                    case 1:
+                        drawable = ContextCompat.getDrawable(MainActivity.this, R.drawable.ic_bussiness);
+                        drawable.setColorFilter(ContextCompat.getColor(MainActivity.this, R.color.cyan_accent), PorterDuff.Mode.SRC_ATOP);
+                        tabLayout.getTabAt(position).setIcon(drawable);
+
+                        drawable = ContextCompat.getDrawable(MainActivity.this, R.drawable.ic_profile);
+                        drawable.setColorFilter(ContextCompat.getColor(MainActivity.this, android.R.color.white), PorterDuff.Mode.SRC_ATOP);
+                        tabLayout.getTabAt(0).setIcon(drawable);
+                        actionButton.hide();
+                        break;
+                    case 0:
+                        drawable = ContextCompat.getDrawable(MainActivity.this, R.drawable.ic_profile);
+                        drawable.setColorFilter(ContextCompat.getColor(MainActivity.this, R.color.cyan_accent), PorterDuff.Mode.SRC_ATOP);
+                        tabLayout.getTabAt(position).setIcon(drawable);
+
+                        drawable = ContextCompat.getDrawable(MainActivity.this, R.drawable.ic_bussiness);
+                        drawable.setColorFilter(ContextCompat.getColor(MainActivity.this, android.R.color.white), PorterDuff.Mode.SRC_ATOP);
+                        tabLayout.getTabAt(1).setIcon(drawable);
+                        actionButton.show();
+
+                        break;
+                    default:
+                        drawable = null;
+                }
+
 
             }
 
@@ -85,6 +137,16 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        tabLayout.getTabAt(0).setIcon(R.drawable.ic_profile);
+        Drawable drawable = ContextCompat.getDrawable(MainActivity.this, R.drawable.ic_bussiness);
+        drawable.setColorFilter(ContextCompat.getColor(MainActivity.this, R.color.cyan_accent), PorterDuff.Mode.SRC_ATOP);
+        tabLayout.getTabAt(1).setIcon(drawable);
+
     }
 
     @Override

@@ -67,7 +67,7 @@
             style="@style/GridItem.Left"
             android:layout_marginTop="24dp"
             app:drawble="@drawable/ic_message"
-            app:grid_description="Message"
+            app:grid_description="Description"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@+id/guideline"
             app:layout_constraintTop_toBottomOf="@+id/user_info_ll" />
@@ -128,6 +128,7 @@
             app:layout_constraintTop_toBottomOf="@id/school_grid_item" />
 
         <in.prathameshkesarkar.eyb.views.ProfileGridView
+            android:id="@+id/internship_grid_item"
             style="@style/GridItem.Big"
             app:drawble="@drawable/ic_work"
             app:grid_description="Internship"
@@ -136,5 +137,11 @@
             app:layout_constraintTop_toBottomOf="@id/linkedin_grid_item"
             />
 
+        <View
+            android:layout_width="0dp"
+            android:layout_height="16dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/internship_grid_item"/>
     </android.support.constraint.ConstraintLayout>
 </ScrollView>
