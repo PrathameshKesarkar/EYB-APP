@@ -1,10 +1,13 @@
 package in.prathameshkesarkar.eyb.model;
 
+import io.realm.RealmObject;
+import io.realm.annotations.RealmClass;
+
 /**
  * Created by prathameshkesarkar on 27/04/17.
  */
 
-public class Social {
+public class Social extends RealmObject{
     private String twitter;
 
     private String linkedin;

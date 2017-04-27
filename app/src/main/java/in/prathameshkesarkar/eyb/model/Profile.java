@@ -1,13 +1,14 @@
 package in.prathameshkesarkar.eyb.model;
 
+import io.realm.RealmObject;
+import io.realm.annotations.RealmClass;
+
 /**
  * Created by prathameshkesarkar on 27/04/17.
  */
 
-public class Profile {
+public class Profile extends RealmObject {
     private String resume;
-
-    private String[] prefered_city;
 
     private Social social;
 
@@ -23,16 +24,6 @@ public class Profile {
     public void setResume (String resume)
     {
         this.resume = resume;
-    }
-
-    public String[] getPreferedCity ()
-    {
-        return prefered_city;
-    }
-
-    public void setPreferedCity (String[] prefered_city)
-    {
-        this.prefered_city = prefered_city;
     }
 
     public Social getSocial ()
@@ -68,6 +59,6 @@ public class Profile {
     @Override
     public String toString()
     {
-        return "ClassPojo [resume = "+resume+", prefered_city = "+prefered_city+", social = "+social+", description = "+description+", mobile_no = "+mobile_no+"]";
+        return "ClassPojo [resume = "+resume+", social = "+social+", description = "+description+", mobile_no = "+mobile_no+"]";
     }
 }
